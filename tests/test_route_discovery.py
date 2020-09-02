@@ -1,5 +1,6 @@
 import pytest
 
+
 # I could not run this tests properly
 
 @pytest.fixture
@@ -7,16 +8,16 @@ def expected_routes():
     """return expected values for all routes"""
     return {
         "spectrum": {
-            "methods": {'OPTIONS', 'POST', 'GET', 'HEAD'},
-            "params": {'sampling_rate', 'units', 'dtype'},
+            "methods": {'OPTIONS', 'POST', 'GET', 'HEAD'},  # not all of the methods implemented
+            "params": {'sampling_rate', 'units', 'dtype'},  # wrong set of parameters
         },
         "mean": {
             "methods": {'OPTIONS', 'POST', 'GET', 'HEAD'},
-            "params": {'dtype'},
+            "params": {'dtype'},  # wrong set of parameters
         },
         "median": {
             "methods": {'OPTIONS', 'POST', 'GET', 'HEAD'},
-            "params": {'dtype'},
+            "params": {'dtype'},  # wrong set of parameters
         },
     }
 
@@ -48,4 +49,3 @@ def test_routes_require_right_methods(client, expected_routes):
         expected_params = expected_routes[name]['params']
         params = set(client.get(route).get_json()['params'])
         assert params == expected_params
-

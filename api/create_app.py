@@ -4,24 +4,24 @@ from calculations.calculations import calc_spectrum, calculate_mean, calculate_m
 
 
 # To remind: I have only brief knowledge of Python, so after spending couple of hours trying to run your code,
-# that does not compile on my machine, I've followed the example from the web and created a project that run,
+# that does not compile on my machine, I've followed the example from the web and created a project that runs,
 # so that's why it looks a little different from yours. And only then I've received your explanation on what
-# exactly I need to do.
+# exactly I need to do, but I have no time to re do everything from scratch.
 
 # What I did:
 # 1. Extracted calculation lines to separate package, so in future it can be used separately
 # 2. Reduced the code duplication by extracting common lines to the separate methods
-# 3. I did not succeeded to run your tests (yet), but I've created Integration tests using PyCharm scratch option
-# 4. I wrote some unit test using another library (it did worked perfectly from the first time)
+# 3. I did not succeeded to run your tests , but I've created Integration tests using PyCharm scratch option
+# 4. I wrote some unit test placements using another test library suggested by PyCharm generate test
 
 # TODO:
 #  1. Use method for "if request.method == 'GET':" - need to find out how to do this gracefully in Python,
-#       in c# I'd use Reflection for that
+#       in c# I'd use Reflection for that, and change it to "options"
 #  2. Change the deserialize to more generic (see the example below)
 #  3. Create an object for 'param'
 #  4. Somehow reduce the amount of the string duplication, in c# I'd do the constant for it,
 #           I not sure know how to do it in Python
-#  5. There is a total mismatch in parameters, there several un necessary
+#  5. There is a total mismatch in parameters, there several unnecessary
 
 def create_app(test_config=None):
     app = Flask(__name__)

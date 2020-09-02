@@ -1,0 +1,128 @@
+GET http://127.0.0.1:5000/
+Accept: application/json
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+
+client.test("Response content-type is json", function() {
+  var type = response.contentType.mimeType;
+  client.assert(type === "application/json", "Expected 'application/json' but received '" + type + "'");
+});
+%}
+
+<> 2020-09-01T075818.200.json
+
+###
+POST  http://127.0.0.1:5000/
+Accept: application/json
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+
+client.test("Response content-type is json", function() {
+  var type = response.contentType.mimeType;
+  client.assert(type === "application/json", "Expected 'application/json' but received '" + type + "'");
+});
+%}
+
+
+###
+
+GET http://127.0.0.1:5000/mean
+Accept: application/json
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+});
+
+client.test("Response content-type is json", function() {
+  var type = response.contentType.mimeType;
+  client.assert(type === "application/json", "Expected 'application/json' but received '" + type + "'");
+});
+%}
+
+
+
+### this tests should be scaled to other 2 methods and should be tested on correct output of cause, and correct exeption
+
+###
+POST http://127.0.0.1:5000/mean
+Content-Type: application/json
+
+{
+  "dtype": "float64",
+  "spectrum": "content"
+}
+
+###
+POST http://127.0.0.1:5000/mean
+Content-Type: application/json
+
+{
+  "spectrum": "content"
+}
+
+###
+POST http://127.0.0.1:5000/mean
+Content-Type: application/json
+
+{
+  "dtype": "float64"
+}
+
+###
+POST http://127.0.0.1:5000/mean
+Content-Type: application/json
+
+{
+
+}
+
+
+###
+POST http://127.0.0.1:5000/mean
+Content-Type: application/json
+
+{
+  "dtype": "float64",
+  "spectrum": [1234.56, 65.78]
+}
+
+<> 2020-08-30T042517.500.html
+
+###
+
+GET http://127.0.0.1:5000/median
+Accept: application/json
+
+<> 2020-08-30T034503.200.json
+
+###
+
+GET http://127.0.0.1:5000/spectrum
+Accept: application/json
+
+<> 2020-08-30T034507.200.json
+###
+
+POST http://127.0.0.1:5000/median
+
+<> 2020-08-30T034644.500.html
+<> 2020-08-30T034613.500.html
+<> 2020-08-30T034548.405.html
+
+###
+
+POST http://127.0.0.1:5000/spectrum
+
+<> 2020-08-30T034641.500.html
+<> 2020-08-30T034613.500.html
+<> 2020-08-30T034548.405.html
+
+###
+
